@@ -400,6 +400,14 @@ pre {
 .layout__toc .toc__bd li {
   list-style-type: none;
 }
+.layout__toc .toc__bd ul a,
+.layout__toc .toc__bd li a {
+  color: #24292e;
+}
+.layout__toc .toc__bd ul a.active,
+.layout__toc .toc__bd li a.active {
+  color: #0366d6;
+}
 .layout__content {
   width: 100%;
   height: 100%;

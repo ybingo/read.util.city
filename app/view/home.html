@@ -57,6 +57,8 @@
     });
 
     $toc.on("click", "a", function (evt) {
+      $toc.find("a").removeClass("active");
+      $(this).addClass("active");
       var bookName = $(this).data("book-name");
       var id = $(this).data("id");
       evt.preventDefault();
