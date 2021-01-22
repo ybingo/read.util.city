@@ -25,9 +25,9 @@
     "node": ">=10.0.0"
   },
   "scripts": {
-    "start": "egg-scripts start --daemon --title=read.util.city --port=1030",
+    "start": "egg-scripts start --daemon --title=read.util.city --port=1031",
     "stop": "egg-scripts stop --title=read.util.city",
-    "dev": "egg-bin dev --port=1030",
+    "dev": "egg-bin dev --port=1031",
     "debug": "egg-bin debug",
     "cov": "egg-bin cov",
     "autod": "autod"
