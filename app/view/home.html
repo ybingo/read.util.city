@@ -1,0 +1,78 @@
+{% extends "./base.html" %}
+
+<!-- Body -->
+{% block body %}
+<div class="layout">
+  <div id="JS_Book" class="layout__book">
+    <h2 class="title">📚 小书库</h2>
+    <ul>
+      {% for book in books %}
+      <li class="book">
+        <a data-book-name="{{ book.bookName }}" href="javascript:;">{{ book.bookName }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div id="JS_Toc" class="layout__toc">
+    <div class="toc__hd"></div>
+    <div class="toc__bd"></div>
+  </div>
+  <div id="JS_Content" class="layout__content"></div>
+</div>
+{% endblock %}
+
+<!-- Foot -->
+{% block foot %}
+<script>
+  $(document).ready(function () {
+    var $book = $("#JS_Book");
+    var $toc = $("#JS_Toc");
+    var $content = $("#JS_Content");
+
+    $(".book a").on("click", function () {
+      $(".book a").removeClass("active");
+      $(this).addClass("active");
+
+      var bookName = $(this).data("book-name");
+      $.ajax({
+        method: "POST",
+        url: "/v1/toc?code={{ code }}",
+        data: { bookName: bookName },
+        success: function (res) {
+          if (res.success) {
+            $toc.find(".toc__hd").text("《" + bookName + "》");
+            $toc
+              .find(".toc__bd")
+              .html(res.data)
+              .find("a")
+              .each(function () {
+                var id = $(this).attr("href").replace("./chapters/", "").replace(".html", "");
+                $(this).attr("data-book-name", bookName).attr("data-id", id).attr("href", "javascript:;");
+              });
+          } else {
+            alert(res.message);
+          }
+        },
+      });
+    });
+
+    $("#JS_Toc").on("click", "a", function (evt) {
+      var bookName = $(this).data("book-name");
+      var id = $(this).data("id");
+      evt.preventDefault();
+      $.ajax({
+        method: "POST",
+        url: "/v1/chapters?code={{ code }}",
+        data: { bookName: bookName, chapterId: id },
+        success: function (res) {
+          if (res.success) {
+            $content.html(res.data);
+          } else {
+            alert(res.message);
+          }
+        },
+      });
+    });
+  });
+</script>
+{% endblock %}

@@ -1,0 +1,44 @@
+{
+  "name": "read.util.city",
+  "version": "1.0.0",
+  "description": "A Online Reader for rmlzy/export_jd_read",
+  "private": true,
+  "egg": {
+    "declarations": true
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.5",
+    "egg": "^2.15.1",
+    "egg-scripts": "^2.11.0",
+    "egg-view-nunjucks": "^2.3.0",
+    "fs-extra": "^9.1.0"
+  },
+  "devDependencies": {
+    "autod": "^3.0.1",
+    "autod-egg": "^1.1.0",
+    "egg-bin": "^4.11.0",
+    "egg-ci": "^1.11.0",
+    "egg-mock": "^3.21.0",
+    "prettier": "^2.2.1"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "scripts": {
+    "start": "egg-scripts start --daemon --title=read.util.city --port=1030",
+    "stop": "egg-scripts stop --title=read.util.city",
+    "dev": "egg-bin dev --port=1030",
+    "debug": "egg-bin debug",
+    "cov": "egg-bin cov",
+    "autod": "autod"
+  },
+  "ci": {
+    "version": "10"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "rmlzy@outlook.com",
+  "license": "MIT"
+}
