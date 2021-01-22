@@ -56,7 +56,7 @@
       });
     });
 
-    $("#JS_Toc").on("click", "a", function (evt) {
+    $toc.on("click", "a", function (evt) {
       var bookName = $(this).data("book-name");
       var id = $(this).data("id");
       evt.preventDefault();
@@ -66,7 +66,7 @@
         data: { bookName: bookName, chapterId: id },
         success: function (res) {
           if (res.success) {
-            $content.html(res.data);
+            $content.html(res.data).animate({ scrollTop: 0 }, "fast");
           } else {
             alert(res.message);
           }
