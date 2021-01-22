@@ -357,14 +357,11 @@ pre {
   margin: 0;
   padding: 20px;
 }
-.layout__book .book {
-  line-height: 40px;
-}
 .layout__book .book a {
   display: block;
   color: #ffffff;
   text-decoration: none;
-  padding: 0 15px;
+  padding: 10px 15px;
 }
 .layout__book .book a.active {
   color: #0366d6;
@@ -389,6 +386,9 @@ pre {
   line-height: 40px;
   font-weight: bold;
   padding: 0 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .layout__toc .toc__bd {
   width: 100%;

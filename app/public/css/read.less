@@ -380,13 +380,11 @@ pre {
     }
 
     .book {
-      line-height: 40px;
-
       a {
         display: block;
         color: #ffffff;
         text-decoration: none;
-        padding: 0 15px;
+        padding: 10px 15px;
 
         &.active {
           color: #0366d6;
@@ -415,6 +413,9 @@ pre {
       line-height: 40px;
       font-weight: bold;
       padding: 0 15px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
     .toc__bd {
